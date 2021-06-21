@@ -1,15 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <dropdown-one></dropdown-one>
+    <dropdown-two></dropdown-two>
+    <crud-operation></crud-operation>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CrudOperation from './components/CrudOperation.vue'
+import DropdownOne from './components/DropdownOne.vue'
+import DropdownTwo from './components/DropdownTwo.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    DropdownOne,
+    DropdownTwo,
+    CrudOperation
+    
   }
 }
 </script>

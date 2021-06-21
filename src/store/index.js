@@ -1,8 +1,8 @@
 import { createStore } from 'vuex'
-import todo from './modules/todo'
+import todos from './modules/todos'
 const store=createStore({
     modules:{
-        todo,
+        todos,
     }
 });
  
