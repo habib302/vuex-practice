@@ -14,10 +14,15 @@ const getters={
    }
 };
 const actions={
-    
+    addBook({commit},payload){
+        console.log(payload);
+        commit('setAddBook',payload);
+    }
 };
 const mutations={
-
+    setAddBook(state,payload){
+        state.books.push(payload);
+    }
 };
  
 export default{
