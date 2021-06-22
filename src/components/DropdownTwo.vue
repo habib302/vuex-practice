@@ -2,7 +2,7 @@
     <div>
         <p>this is dropdown two</p>
         <div id="v-model-select" class="demo">
-            <select v-model="inputValue" @change="updateGetterSelectedValue">
+            <select v-model="inputValue" @change="inputValueFunction(inputValue)">
                 <option disabled value="">Please select one</option>
                 <option>1</option>
                 <option>2</option>
@@ -14,7 +14,7 @@
         </div>
         <div>
             <p>inputValue={{inputValue}} </p>
-            <p>getterSelectedValue={{getterSelectedValue}} </p>
+            <p>getterdataFromJson={{getterdataFromJson}} </p>
         </div>
     </div>
 </template>
@@ -25,24 +25,24 @@ export default {
     name:'DropdownTwo',
     components:{},
     computed:{
-        ...mapGetters(['getterdataFromJson','getterSelectedValue']),
+        ...mapGetters(['getterdataFromJson',]),
 
     },
     data(){
         return{
-            inputValue: this.getterSelectedValue,
+            inputValue: '',
         }
     },
     methods:{
-        ...mapActions(['actionFetchdata']),
-        updateGetterSelectedValue(){
-            this.getterSelectedValue= this.inputValue;
-            console.log(this.inputValue);
+        ...mapActions(['actionFetchdata','actionFetchDataById']),
+        inputValueFunction(value){
+            this.$store.dispatch("actionFetchDataById",value);
+            console.log(value);
         }
 
     },
     created(){
-        return this.actionFetchdata();
+        // return this.actionFetchdata();
     },
 }
 </script>
